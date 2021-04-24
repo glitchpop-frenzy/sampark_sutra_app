@@ -53,15 +53,6 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ],
-        decoration: BoxDecoration(
-            color: Color(0xFFfae1dd),
-            border: Border.all(style: BorderStyle.none)),
-        child: ListView(
-          children: <Widget>[
-            CategoryCard.categoryCard(
-              context,
-              'Oxygen',
-              'assets/icons/lack-of-air.png',
             ),
           ),
         ),
