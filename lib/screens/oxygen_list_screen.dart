@@ -14,15 +14,6 @@ class OxygenListScreen extends StatefulWidget {
 }
 
 class _OxygenListScreenState extends State<OxygenListScreen> {
-  void _makingPhoneCall() async {
-    const url = 'tel:9876543210';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final oxygenProviderList =
@@ -152,13 +143,10 @@ class _OxygenListScreenState extends State<OxygenListScreen> {
                   ),
                 ],
               ),
-
             ),
-            backgroundColor:
-                MaterialStateProperty.all(CardTheme.of(context).color),
           ),
+          itemCount: oxygenProviderList.length,
         ),
-        itemCount: oxygenProviderList.length,
       ),
     );
   }
