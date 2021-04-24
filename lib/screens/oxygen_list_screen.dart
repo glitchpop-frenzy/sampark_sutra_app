@@ -78,13 +78,35 @@ class _OxygenListScreenState extends State<OxygenListScreen> {
                               SizedBox(
                                 height: 8.0,
                               ),
-                              Text(
-                                '${oxygenProviderList[index].provider}',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
+                              Container(
+                                padding: const EdgeInsets.all(5.0),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Color(0xff1c5d99),
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(5.0),
+                                  ),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      '${oxygenProviderList[index].provider}',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    SizedBox(height: 3.0),
+                                    Text(
+                                      '${oxygenProviderList[index].contact}',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Text('${oxygenProviderList[index].contact}'),
                             ],
                           ),
                         ),
@@ -98,7 +120,7 @@ class _OxygenListScreenState extends State<OxygenListScreen> {
                   Row(
                     children: [
                       Expanded(
-                        flex: 3,
+                        flex: 2,
                         child: Column(
                           children: [
                             Text(
@@ -130,7 +152,7 @@ class _OxygenListScreenState extends State<OxygenListScreen> {
                           onPressed: () => launch(
                               "tel:${oxygenProviderList[index].contact}"),
                           child: Text(
-                            'Call!',
+                            'Call',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
