@@ -8,6 +8,7 @@ class Oxygen {
   int? numOfCylinders;
   String? contact;
 
+
   Oxygen({
     this.description,
     this.duration,

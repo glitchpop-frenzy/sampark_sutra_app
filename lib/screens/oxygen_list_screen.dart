@@ -152,10 +152,13 @@ class _OxygenListScreenState extends State<OxygenListScreen> {
                   ),
                 ],
               ),
+
             ),
+            backgroundColor:
+                MaterialStateProperty.all(CardTheme.of(context).color),
           ),
-          itemCount: oxygenProviderList.length,
         ),
+        itemCount: oxygenProviderList.length,
       ),
     );
   }
