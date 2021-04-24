@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import './screens/home.dart';
 import './providers/oxygen_provider.dart';
 import './screens/oxygen_list_screen.dart';
+import './screens/auth_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Covid-19 Resources App',
         theme: ThemeData(
+          accentColor: Color(0xFF003049),
           brightness: Brightness.light,
           primarySwatch: Colors.green,
           fontFamily: 'Raleway',
@@ -31,10 +33,18 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
+          cardTheme: CardTheme(
+            color: Color(0xFFd8e2dc),
+            // margin: EdgeInsets.symmetric(
+            //   horizontal: 5,
+            //   vertical: 5,
+            // ),
+          ),
         ),
         home: MyHomePage(),
         routes: {
           OxygenListScreen.routeName: (ctx) => OxygenListScreen(),
+          AuthScreen.routeName: (ctx) => AuthScreen(),
         },
       ),
     );

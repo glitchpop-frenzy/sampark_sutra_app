@@ -49,6 +49,7 @@ flutter:
     - assets/icons/hospital_bed.png
     - assets/icons/plasma_donation.jpg
     - assets/icons/remdesivir.png
+    - assets/icons/SamparkSutra.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

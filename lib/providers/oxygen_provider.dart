@@ -12,7 +12,7 @@ class OxygenProvider extends ChangeNotifier {
       numOfCylinders: 5,
       provider: 'Om Prakash',
       quantityPerCylinder: 22,
-    )
+    ),
   ];
 
   List<Oxygen> get oxygenProviderList {
