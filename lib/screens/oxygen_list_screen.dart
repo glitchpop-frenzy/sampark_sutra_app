@@ -20,16 +20,22 @@ class _OxygenListScreenState extends State<OxygenListScreen> {
       appBar: AppBar(
         title: const Text('Oxygen Suppliers'),
       ),
-      body: Container(
-        child: ListView.builder(
-          itemBuilder: (ctx, index) => Card(
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text('This is a oxygen text'),
-            ),
+      body: ListView.builder(
+        itemBuilder: (ctx, index) => ElevatedButton(
+          child: Text(
+            'data',
+            style: TextStyle(color: Colors.black),
           ),
-          itemCount: oxygenProviderList.length,
+          onPressed: () {},
+          style: ButtonStyle(
+            minimumSize: MaterialStateProperty.all(
+              Size(double.infinity, 100),
+            ),
+            backgroundColor:
+                MaterialStateProperty.all(CardTheme.of(context).color),
+          ),
         ),
+        itemCount: oxygenProviderList.length,
       ),
     );
   }

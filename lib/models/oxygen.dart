@@ -6,6 +6,7 @@ class Oxygen {
   String? location;
   int? numOfCylinders;
   double? quantityPerCylinder;
+  int? contact;
 
   Oxygen({
     this.description,
@@ -15,5 +16,6 @@ class Oxygen {
     this.provider,
     this.numOfCylinders,
     this.quantityPerCylinder,
+    this.contact,
   });
 }

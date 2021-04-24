@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/category_card.dart';
+import 'auth_screen.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -8,9 +9,18 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resources'),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.person_add),
+              onPressed: () {
+                Navigator.of(context).pushNamed(AuthScreen.routeName);
+              })
+        ],
       ),
       body: Container(
-        color: Color(0xFFfae1dd),
+        decoration: BoxDecoration(
+            color: Color(0xFFfae1dd),
+            border: Border.all(style: BorderStyle.none)),
         child: ListView(
           children: <Widget>[
             CategoryCard.categoryCard(
