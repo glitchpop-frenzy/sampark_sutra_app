@@ -34,4 +34,4 @@ Flutter, Firebase
 
 ## Video Demo link
 
-![https://www.youtube.com/watch?v=xX3HpRfJdT4](https://www.youtube.com/watch?v=xX3HpRfJdT4)
+[https://www.youtube.com/watch?v=xX3HpRfJdT4](https://www.youtube.com/watch?v=xX3HpRfJdT4)
