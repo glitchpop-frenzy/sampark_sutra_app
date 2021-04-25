@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../screens/oxygen_list_screen.dart';
 import '../screens/med_list_screen.dart';
@@ -6,24 +7,35 @@ import '../screens/donor_screen.dart';
 import '../screens/beds_screen.dart';
 
 import '../widgets/category_card.dart';
+import 'edit_profile_screen.dart';
 import 'auth_screen.dart';
+import '../app_model/api.dart';
 
 class MyHomePage extends StatelessWidget {
+  static const routeName = '/home';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Resources'),
-        backgroundColor: Color(0xff084c61),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.person_add),
-            onPressed: () {
-              Navigator.of(context).pushNamed(AuthScreen.routeName);
-            },
-          ),
-        ],
-      ),
+    return Consumer<Api>(
+      builder: (ctx, api, _) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Resources'),
+          actions: [
+            !api.isAuth()
+                ? IconButton(
+                    icon: Icon(Icons.person_add),
+                    onPressed: () {
+                      print(api.isAuth());
+                      Navigator.of(context).pushNamed(AuthScreen.routeName);
+                    })
+                : IconButton(
+                    icon: Icon(Icons.login_rounded),
+                    onPressed: () {
+                      print(api.isAuth());
+                      Navigator.of(context)
+                          .pushNamed(EditProfileScreen.routeName);
+                    })
+          ],
+        ),
       body: Container(
         color: Color(0xFFfae1dd),
         child: SingleChildScrollView(
@@ -62,8 +74,8 @@ class MyHomePage extends StatelessWidget {
                     MedListScreen.routeName,
                     'assets/icons/remdesivir.png',
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

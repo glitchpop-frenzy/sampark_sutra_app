@@ -1,4 +1,8 @@
+import '../screens/home.dart';
 import 'package:flutter/material.dart';
+
+import 'input_decoration.dart';
+import '../view_model/api_vm.dart';
 
 class AuthCard extends StatefulWidget {
   @override
@@ -9,39 +13,50 @@ enum AuthMode { Login, Signup }
 
 class _AuthCardState extends State<AuthCard> {
   GlobalKey<FormState> _formKey = GlobalKey();
-  TextEditingController _phoneController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
 
-  InputDecoration? inputDec(String? label, String? hint) {
-    return InputDecoration(
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(
-          color: Color(0xFF0077b6),
-          width: 1,
+  bool currentStateSave() {
+    if (!_formKey.currentState!.validate()) {
+      return false;
+    }
+    print('This is running?');
+    _formKey.currentState!.save();
+    return true;
+  }
+
+  void _signup(String mail, String pwd) async {
+    if (!currentStateSave()) {
+      return;
+    }
+    final response = await ApiVM().signup(mail, pwd);
+
+    print(response);
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          elevation: 3,
+          behavior: SnackBarBehavior.floating,
+          duration: Duration(seconds: 3),
+          content: Container(child: Text('$response')),
         ),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(
-          color: Color(0xFFf94144),
-          width: 1,
-        ),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(
-          color: Color(0xFF03045e),
-          width: 1,
-        ),
-      ),
-      labelText: label,
-      hintText: hint,
-      labelStyle: TextStyle(
-        color: Color(0xFF003049),
-        fontWeight: FontWeight.bold,
-      ),
-    );
+      );
+    if (response == 'User Registration Successful!!')
+      setState(() {
+        _authMode = AuthMode.Login;
+        _emailController.text = '';
+        _confirmPasswordController.text = '';
+        _passwordController.text = '';
+      });
+  }
+
+  Future<void> _login(String mail, String password) async {
+    if (!currentStateSave()) {
+      return;
+    }
+    await ApiVM().login(mail, password);
   }
 
   AuthMode _authMode = AuthMode.Login;
@@ -64,19 +79,66 @@ class _AuthCardState extends State<AuthCard> {
                   height: 8,
                 ),
                 TextFormField(
-                  decoration: inputDec('E-mail Address', 'Ex. xyz@gmail.com'),
-                  controller: _phoneController,
+                  autofocus: false,
+                  decoration: inputDec('Email Address', 'Ex. abc@xyz.com'),
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
+                  validator: (value) {
+                    if (_emailController.text == '') {
+                      return 'This field cannot be blank';
+                    } else if (!_emailController.text.contains('@')) {
+                      return 'Invalid e-mail Number!!';
+                    }
+                    return null;
+                  },
                 ),
-                if (_authMode == AuthMode.Login)
-                  Column(children: [
+                Column(
+                  children: [
                     SizedBox(
                       height: 8,
                     ),
                     TextFormField(
+                      autofocus: false,
                       decoration: inputDec('Password', 'Enter your password'),
-                      controller: _phoneController,
+                      textInputAction: _authMode == AuthMode.Signup
+                          ? TextInputAction.next
+                          : TextInputAction.done,
+                      controller: _passwordController,
+                      obscureText: true,
+                      validator: (value) {
+                        if (_passwordController.text == '') {
+                          return 'This field cannot be blank';
+                        } else if (_passwordController.text.length < 8) {
+                          return 'The length of the password should be grater tha 8';
+                        } else if (_passwordController.text !=
+                                _confirmPasswordController.text &&
+                            _authMode == AuthMode.Signup) {
+                          return 'Passwords do not match';
+                        }
+                        return null;
+                      },
                     ),
-                  ]),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    if (_authMode == AuthMode.Signup)
+                      TextFormField(
+                        autofocus: false,
+                        decoration: inputDec('Confirm Password', ''),
+                        obscureText: true,
+                        controller: _confirmPasswordController,
+                        validator: (value) {
+                          if (_passwordController.text == '') {
+                            return 'This field cannot be blank';
+                          } else if (_passwordController.text != value) {
+                            return 'Passwords do not match';
+                          }
+                          return null;
+                        },
+                      ),
+                  ],
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -90,7 +152,12 @@ class _AuthCardState extends State<AuthCard> {
                             Color(0xFF003049),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () async {
+                          await _login(
+                              _emailController.text, _passwordController.text);
+                          Navigator.of(context)
+                              .pushReplacementNamed(MyHomePage.routeName);
+                        },
                         child: Text(
                           'Login',
                           style: TextStyle(fontSize: 18),
@@ -105,7 +172,10 @@ class _AuthCardState extends State<AuthCard> {
                             Color(0xFF003049),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () => _signup(
+                          _emailController.text,
+                          _passwordController.text,
+                        ),
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
@@ -138,6 +208,9 @@ class _AuthCardState extends State<AuthCard> {
                             onPressed: () {
                               setState(() {
                                 _authMode = AuthMode.Signup;
+                                _emailController.text = '';
+                                _confirmPasswordController.text = '';
+                                _passwordController.text = '';
                               });
                             },
                             child: Text(
@@ -165,6 +238,9 @@ class _AuthCardState extends State<AuthCard> {
                             onPressed: () {
                               setState(() {
                                 _authMode = AuthMode.Login;
+                                _emailController.text = '';
+                                _confirmPasswordController.text = '';
+                                _passwordController.text = '';
                               });
                             },
                             child: Text(
