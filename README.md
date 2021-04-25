@@ -22,15 +22,15 @@ Flutter, Firebase
 
 ## Snapshots
 
-![Snapshot 1](file:///home/sg24x7/Downloads/WhatsApp Image 2021-04-25 at 7.40.42 PM.jpeg)
+![Snapshot 1](https://user-images.githubusercontent.com/55953830/115997404-9da55100-a600-11eb-8922-02156f2e0555.jpeg)
 
-![Snapshot 2](file:///home/sg24x7/Downloads/WhatsApp Image 2021-04-25 at 7.40.43 PM(1).jpeg)
+![Snapshot 2](https://user-images.githubusercontent.com/55953830/115997405-9ed67e00-a600-11eb-9275-c510500cd09d.jpeg)
 
-![Snapshot 3](file:///home/sg24x7/Downloads/WhatsApp Image 2021-04-25 at 7.40.43 PM.jpeg)
+![Snapshot 3](https://user-images.githubusercontent.com/55953830/115997407-9ed67e00-a600-11eb-9965-08c0d390e69d.jpeg)
 
-![Snapshot 4](file:///home/sg24x7/Downloads/WhatsApp Image 2021-04-25 at 7.40.44 PM(1).jpeg)
+![Snapshot 4](https://user-images.githubusercontent.com/55953830/115997408-9f6f1480-a600-11eb-845c-eb6916be5713.jpeg)
 
-![Snapshot 5](file:///home/sg24x7/Downloads/WhatsApp Image 2021-04-25 at 7.40.44 PM.jpeg)
+![Snapshot 5](https://user-images.githubusercontent.com/55953830/115997409-a007ab00-a600-11eb-9446-e877aa9f7fe7.jpeg)
 
 ## Video Demo link
 
