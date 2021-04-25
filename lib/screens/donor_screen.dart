@@ -24,7 +24,7 @@ class _DonorScreenState extends State<DonorScreen> {
       backgroundColor: Color(0xfff7f7ff),
       appBar: AppBar(
         backgroundColor: Color(0xffb3b3f1),
-        title: const Text('Medicine Suppliers'),
+        title: const Text('Donors'),
       ),
       body: Container(
         child: ListView.builder(

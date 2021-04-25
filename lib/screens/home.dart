@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../screens/oxygen_list_screen.dart';
 import '../screens/med_list_screen.dart';
 import '../screens/donor_screen.dart';
+import '../screens/beds_screen.dart';
 
 import '../widgets/category_card.dart';
 import 'auth_screen.dart';
@@ -13,6 +14,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resources'),
+        backgroundColor: Color(0xff084c61),
         actions: [
           IconButton(
             icon: Icon(Icons.person_add),
@@ -49,7 +51,7 @@ class MyHomePage extends StatelessWidget {
                   child: CategoryCard.categoryCard(
                     context,
                     'Beds',
-                    OxygenListScreen.routeName,
+                    BedScreen.routeName,
                     'assets/icons/hospital_bed.png',
                   ),
                 ),

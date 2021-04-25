@@ -12,6 +12,7 @@ import './screens/oxygen_list_screen.dart';
 import './screens/auth_screen.dart';
 import './screens/med_list_screen.dart';
 import './screens/donor_screen.dart';
+import './screens/beds_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
           AuthScreen.routeName: (ctx) => AuthScreen(),
           MedListScreen.routeName: (context) => MedListScreen(),
           DonorScreen.routeName: (context) => DonorScreen(),
+          BedScreen.routeName: (context) => BedScreen(),
         },
       ),
     );

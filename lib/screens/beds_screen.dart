@@ -3,28 +3,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../providers/redmisivir_provider.dart';
+import '../providers/beds_provider.dart';
 
 import 'package:covid_relief_app/components/block.dart';
 
-class MedListScreen extends StatefulWidget {
-  static const routeName = 'med-list-screen';
+class BedScreen extends StatefulWidget {
+  static const routeName = 'bed-list-screen';
   @override
-  _MedListScreenState createState() => _MedListScreenState();
+  _BedScreenState createState() => _BedScreenState();
 }
 
-class _MedListScreenState extends State<MedListScreen> {
+class _BedScreenState extends State<BedScreen> {
   @override
   Widget build(BuildContext context) {
-    final medicineProviderList =
-        Provider.of<MedicineProvider>(context).medicineProviderList;
-    print(medicineProviderList);
+    final bedProviderList = Provider.of<BedProvider>(context).bedProviderList;
+    print(bedProviderList);
 
     return Scaffold(
       backgroundColor: Color(0xfff7f7ff),
       appBar: AppBar(
-        backgroundColor: Color(0xff246a73),
-        title: const Text('Medicine Suppliers'),
+        backgroundColor: Color(0xfffe5f55),
+        title: const Text('Hospital Beds'),
       ),
       body: Container(
         child: ListView.builder(
@@ -33,10 +32,10 @@ class _MedListScreenState extends State<MedListScreen> {
               onTap: () {},
               title: Column(
                 children: [
-                  SizedBox(height: 15.0),
+                  SizedBox(height: 25.0),
                   Center(
                     child: Text(
-                      '${medicineProviderList[index].location}',
+                      '${bedProviderList[index].location}',
                       style: TextStyle(
                         fontSize: 20.0,
                         letterSpacing: 1.2,
@@ -54,7 +53,7 @@ class _MedListScreenState extends State<MedListScreen> {
                           child: Column(
                             children: [
                               Text(
-                                '${medicineProviderList[index].hospitalName}',
+                                '${bedProviderList[index].hospitalName}',
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   fontSize: 20.0,
@@ -63,23 +62,14 @@ class _MedListScreenState extends State<MedListScreen> {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              SizedBox(height: 5.0),
+                              SizedBox(height: 8.0),
                               Text(
-                                'Meds available:',
+                                'Beds available: ${bedProviderList[index].numOfBeds}',
                                 style: TextStyle(
                                   color: Color(0xffff9f1c),
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              for (int i = 0;
-                                  i < medicineProviderList[index].meds!.length;
-                                  i++)
-                                Text(
-                                  '${medicineProviderList[index].meds![i]}',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
                             ],
                           ),
                         ),
@@ -115,7 +105,7 @@ class _MedListScreenState extends State<MedListScreen> {
                                   children: [
                                     SizedBox(height: 3.0),
                                     Text(
-                                      '${medicineProviderList[index].contact}',
+                                      '${bedProviderList[index].contact}',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -140,7 +130,7 @@ class _MedListScreenState extends State<MedListScreen> {
                         child: Column(
                           children: [
                             Text(
-                              'Reported ${medicineProviderList[index].duration.toString().substring(0, 2)} hrs ago',
+                              'Reported ${bedProviderList[index].duration.toString().substring(0, 2)} hrs ago',
                               style: TextStyle(
                                 fontSize: 18.0,
                                 color: Color(0xff36413e),
@@ -157,8 +147,8 @@ class _MedListScreenState extends State<MedListScreen> {
                             backgroundColor:
                                 MaterialStateProperty.all(Color(0xFF003049)),
                           ),
-                          onPressed: () => launch(
-                              "tel:${medicineProviderList[index].contact}"),
+                          onPressed: () =>
+                              launch("tel:${bedProviderList[index].contact}"),
                           child: Text(
                             'Call',
                             style: TextStyle(
@@ -175,7 +165,7 @@ class _MedListScreenState extends State<MedListScreen> {
               ),
             ),
           ),
-          itemCount: medicineProviderList.length,
+          itemCount: bedProviderList.length,
         ),
       ),
     );
