@@ -15,27 +15,27 @@ class MyHomePage extends StatelessWidget {
   static const routeName = '/home';
   @override
   Widget build(BuildContext context) {
-    return Consumer<Api>(
-      builder: (ctx, api, _) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Resources'),
-          actions: [
-            !api.isAuth()
-                ? IconButton(
-                    icon: Icon(Icons.person_add),
-                    onPressed: () {
-                      print(api.isAuth());
-                      Navigator.of(context).pushNamed(AuthScreen.routeName);
-                    })
-                : IconButton(
-                    icon: Icon(Icons.login_rounded),
-                    onPressed: () {
-                      print(api.isAuth());
-                      Navigator.of(context)
-                          .pushNamed(EditProfileScreen.routeName);
-                    })
-          ],
-        ),
+    bool _token = Provider.of<Api>(context).isAuth();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Resources'),
+        actions: [
+          _token
+              ? IconButton(
+                  icon: Icon(Icons.login_rounded),
+                  onPressed: () {
+                    // print(api.isAuth());
+                    Navigator.of(context)
+                        .pushNamed(EditProfileScreen.routeName);
+                  })
+              : IconButton(
+                  icon: Icon(Icons.person_add),
+                  onPressed: () {
+                    // print(api.isAuth());
+                    Navigator.of(context).pushNamed(AuthScreen.routeName);
+                  })
+        ],
+      ),
       body: Container(
         color: Color(0xFFfae1dd),
         child: SingleChildScrollView(
@@ -68,14 +68,13 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: CategoryCard.categoryCard(
-                    context,
-                    'Remdesivir',
-                    MedListScreen.routeName,
-                    'assets/icons/remdesivir.png',
-                  ),
-                ],
-              ),
+                    child: CategoryCard.categoryCard(
+                  context,
+                  'Remdesivir',
+                  MedListScreen.routeName,
+                  'assets/icons/remdesivir.png',
+                )),
+              ],
             ),
           ),
         ),

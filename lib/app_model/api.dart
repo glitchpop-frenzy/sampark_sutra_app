@@ -37,12 +37,13 @@ class Api with ChangeNotifier {
         ),
       );
       final responseData = json.decode(response.body);
-      print('responseData: $responseData');
+      print('responseData Provider: ${responseData['idToken']}');
       if (responseData['error'] == null) {
-        token = responseData['idToken'];
         expiresIn = DateTime.now()
             .add(Duration(seconds: int.parse(responseData['expiresIn'])));
         _userid = responseData['localId'];
+        token = responseData['idToken'];
+
         notifyListeners();
       }
     } catch (e) {
