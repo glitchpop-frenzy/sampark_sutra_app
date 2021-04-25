@@ -5,14 +5,16 @@ import '../screens/oxygen_list_screen.dart';
 class CategoryCard {
   String? category;
   String? icon;
+  String? route;
   static Widget categoryCard(
-      BuildContext context, String? category, String? icon) {
+      BuildContext context, String? category, String route, String? icon) {
     return Card(
       elevation: 3,
       borderOnForeground: true,
       child: ListTile(
         onTap: () {
-          Navigator.of(context).pushNamed(OxygenListScreen.routeName);
+          print(route);
+          Navigator.of(context).pushNamed(route);
         },
         contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
         leading: Image.asset(icon!),

@@ -2,11 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './screens/home.dart';
+
 import './screens/edit_profile_screen.dart';
+
 import './providers/oxygen_provider.dart';
+import './providers/redmisivir_provider.dart';
+import './providers/plasma_provider.dart';
+import './providers/beds_provider.dart';
+
 import './screens/oxygen_list_screen.dart';
 import './screens/auth_screen.dart';
+
 import './app_model/api.dart';
+
+import './screens/med_list_screen.dart';
+import './screens/donor_screen.dart';
+import './screens/beds_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +31,18 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => OxygenProvider(),
         ),
-        ChangeNotifierProvider.value(value: Api())
+        ChangeNotifierProvider.value(
+          value: Api(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => DonorProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => BedProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => MedicineProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -46,6 +68,9 @@ class MyApp extends StatelessWidget {
           OxygenListScreen.routeName: (ctx) => OxygenListScreen(),
           AuthScreen.routeName: (ctx) => AuthScreen(),
           EditProfileScreen.routeName: (ctx) => EditProfileScreen(),
+          MedListScreen.routeName: (context) => MedListScreen(),
+          DonorScreen.routeName: (context) => DonorScreen(),
+          BedScreen.routeName: (context) => BedScreen(),
         },
       ),
     );

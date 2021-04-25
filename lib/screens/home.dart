@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../screens/oxygen_list_screen.dart';
+import '../screens/med_list_screen.dart';
+import '../screens/donor_screen.dart';
+import '../screens/beds_screen.dart';
+
 import '../widgets/category_card.dart';
 import 'edit_profile_screen.dart';
 import 'auth_screen.dart';
@@ -31,40 +36,43 @@ class MyHomePage extends StatelessWidget {
                     })
           ],
         ),
-        body: Container(
-          color: Color(0xFFfae1dd),
-          child: SingleChildScrollView(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: Column(
-                children: <Widget>[
-                  Expanded(
-                    child: CategoryCard.categoryCard(
-                      context,
-                      'Oxygen',
-                      'assets/icons/lack-of-air.png',
-                    ),
+      body: Container(
+        color: Color(0xFFfae1dd),
+        child: SingleChildScrollView(
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  child: CategoryCard.categoryCard(
+                    context,
+                    'Oxygen',
+                    OxygenListScreen.routeName,
+                    'assets/icons/lack-of-air.png',
                   ),
-                  Expanded(
-                    child: CategoryCard.categoryCard(
-                      context,
-                      'Plasma Donation',
-                      'assets/icons/plasma_donation.jpg',
-                    ),
+                ),
+                Expanded(
+                  child: CategoryCard.categoryCard(
+                    context,
+                    'Plasma Donation',
+                    DonorScreen.routeName,
+                    'assets/icons/plasma_donation.jpg',
                   ),
-                  Expanded(
-                    child: CategoryCard.categoryCard(
-                      context,
-                      'Beds',
-                      'assets/icons/hospital_bed.png',
-                    ),
+                ),
+                Expanded(
+                  child: CategoryCard.categoryCard(
+                    context,
+                    'Beds',
+                    BedScreen.routeName,
+                    'assets/icons/hospital_bed.png',
                   ),
-                  Expanded(
-                    child: CategoryCard.categoryCard(
-                      context,
-                      'Remdesivir',
-                      'assets/icons/remdesivir.png',
-                    ),
+                ),
+                Expanded(
+                  child: CategoryCard.categoryCard(
+                    context,
+                    'Remdesivir',
+                    MedListScreen.routeName,
+                    'assets/icons/remdesivir.png',
                   ),
                 ],
               ),
