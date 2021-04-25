@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/oxygen_list_screen.dart';
 import '../screens/med_list_screen.dart';
+import '../screens/donor_screen.dart';
 
 import '../widgets/category_card.dart';
 import 'auth_screen.dart';
@@ -40,7 +41,7 @@ class MyHomePage extends StatelessWidget {
                   child: CategoryCard.categoryCard(
                     context,
                     'Plasma Donation',
-                    OxygenListScreen.routeName,
+                    DonorScreen.routeName,
                     'assets/icons/plasma_donation.jpg',
                   ),
                 ),

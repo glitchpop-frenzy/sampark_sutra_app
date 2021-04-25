@@ -5,10 +5,13 @@ import './screens/home.dart';
 
 import './providers/oxygen_provider.dart';
 import './providers/redmisivir_provider.dart';
+import './providers/plasma_provider.dart';
+import './providers/beds_provider.dart';
 
 import './screens/oxygen_list_screen.dart';
 import './screens/auth_screen.dart';
 import './screens/med_list_screen.dart';
+import './screens/donor_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,8 +26,14 @@ class MyApp extends StatelessWidget {
           create: (ctx) => OxygenProvider(),
         ),
         ChangeNotifierProvider(
+          create: (ctx) => DonorProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => BedProvider(),
+        ),
+        ChangeNotifierProvider(
           create: (ctx) => MedicineProvider(),
-        )
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -42,10 +51,6 @@ class MyApp extends StatelessWidget {
           ),
           cardTheme: CardTheme(
             color: Color(0xFFd8e2dc),
-            // margin: EdgeInsets.symmetric(
-            //   horizontal: 5,
-            //   vertical: 5,
-            // ),
           ),
         ),
         home: MyHomePage(),
@@ -53,6 +58,7 @@ class MyApp extends StatelessWidget {
           OxygenListScreen.routeName: (ctx) => OxygenListScreen(),
           AuthScreen.routeName: (ctx) => AuthScreen(),
           MedListScreen.routeName: (context) => MedListScreen(),
+          DonorScreen.routeName: (context) => DonorScreen(),
         },
       ),
     );
