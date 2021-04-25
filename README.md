@@ -19,3 +19,15 @@ Flutter, Firebase
 - Create a better UI for the app
 - Add feature for logged in user to add data to the app.
 - Implement phone number authentication in the app.
+
+## Snapshots
+
+![WhatsApp Image 2021-04-25 at 19 19 06 (2)](https://user-images.githubusercontent.com/55907631/115996001-39cc5980-a5fb-11eb-8748-fd966b3f87ee.jpeg)
+
+![WhatsApp Image 2021-04-25 at 19 19 06 (1)](https://user-images.githubusercontent.com/55907631/115996004-3d5fe080-a5fb-11eb-8151-323662e7d2f9.jpeg)
+
+![WhatsApp Image 2021-04-25 at 19 19 06](https://user-images.githubusercontent.com/55907631/115996012-4650b200-a5fb-11eb-91a8-b49fb7502f15.jpeg)
+
+![WhatsApp Image 2021-04-25 at 19 19 05](https://user-images.githubusercontent.com/55907631/115996016-49e43900-a5fb-11eb-9230-9d32dd0f6850.jpeg)
+
+![WhatsApp Image 2021-04-25 at 19 19 05 (1)](https://user-images.githubusercontent.com/55907631/115996018-4badfc80-a5fb-11eb-93c0-9950cc1bc1a7.jpeg)
