@@ -1,21 +1,19 @@
-class Oxygen {
+class Bed {
   Duration? duration;
   Duration? reportedTime;
   String? infoby;
-  String? provider;
-  String? description;
+  String? hospitalName;
   String? location;
-  int? numOfCylinders;
+  int? numOfBeds;
   String? contact;
 
-  Oxygen({
-    this.description,
+  Bed({
     this.duration,
     this.reportedTime,
     this.infoby,
+    this.hospitalName,
     this.location,
-    this.provider,
-    this.numOfCylinders,
+    this.numOfBeds,
     this.contact,
   });
 }
