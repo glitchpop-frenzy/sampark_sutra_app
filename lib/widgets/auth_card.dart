@@ -26,7 +26,7 @@ class _AuthCardState extends State<AuthCard> {
     return true;
   }
 
-  void _signup(String mail, String pwd) async {
+  Future<void> _signup(String mail, String pwd) async {
     if (!currentStateSave()) {
       return;
     }
@@ -172,10 +172,12 @@ class _AuthCardState extends State<AuthCard> {
                             Color(0xFF003049),
                           ),
                         ),
-                        onPressed: () => _signup(
-                          _emailController.text,
-                          _passwordController.text,
-                        ),
+                        onPressed: () async {
+                          await _signup(
+                            _emailController.text,
+                            _passwordController.text,
+                          );
+                        },
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
