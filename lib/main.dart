@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './screens/home.dart';
+import './screens/edit_profile_screen.dart';
 import './providers/oxygen_provider.dart';
 import './screens/oxygen_list_screen.dart';
 import './screens/auth_screen.dart';
+import './app_model/api.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +19,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (ctx) => OxygenProvider(),
-        )
+        ),
+        ChangeNotifierProvider.value(value: Api())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -35,16 +38,14 @@ class MyApp extends StatelessWidget {
           ),
           cardTheme: CardTheme(
             color: Color(0xFFd8e2dc),
-            // margin: EdgeInsets.symmetric(
-            //   horizontal: 5,
-            //   vertical: 5,
-            // ),
           ),
         ),
         home: MyHomePage(),
         routes: {
+          MyHomePage.routeName: (ctx) => MyHomePage(),
           OxygenListScreen.routeName: (ctx) => OxygenListScreen(),
           AuthScreen.routeName: (ctx) => AuthScreen(),
+          EditProfileScreen.routeName: (ctx) => EditProfileScreen(),
         },
       ),
     );

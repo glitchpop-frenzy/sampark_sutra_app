@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "653603509783",
+    "firebase_url": "https://sampark-sutra-default-rtdb.firebaseio.com",
+    "project_id": "sampark-sutra",
+    "storage_bucket": "sampark-sutra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653603509783:android:6f60994990f4c0098cae52",
+        "android_client_info": {
+          "package_name": "com.sgyt.samparksutra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653603509783-sepa597mpa2kq4m07d9886qtc6rsp41j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sgyt.samparksutra",
+            "certificate_hash": "bc856cc2192d73969cbf4a77813baad8e3226654"
+          }
+        },
+        {
+          "client_id": "653603509783-hl4vnua2r3vtd0ufqt3q62vko0c32s36.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwvLszcTNjbdygNQUI-u-eWjUuh1J8lRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653603509783-hl4vnua2r3vtd0ufqt3q62vko0c32s36.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
