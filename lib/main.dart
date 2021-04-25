@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './screens/home.dart';
+
 import './providers/oxygen_provider.dart';
+import './providers/redmisivir_provider.dart';
+
 import './screens/oxygen_list_screen.dart';
 import './screens/auth_screen.dart';
+import './screens/med_list_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +21,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (ctx) => OxygenProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => MedicineProvider(),
         )
       ],
       child: MaterialApp(
@@ -45,6 +52,7 @@ class MyApp extends StatelessWidget {
         routes: {
           OxygenListScreen.routeName: (ctx) => OxygenListScreen(),
           AuthScreen.routeName: (ctx) => AuthScreen(),
+          MedListScreen.routeName: (context) => MedListScreen(),
         },
       ),
     );
